@@ -5,6 +5,10 @@ import { useTheme } from "next-themes"
 import { Moon, Sun, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import Link from "next/link"
+import { usePathname, useRouter } from "next/navigation"
+import { motion, AnimatePresence } from "framer-motion"
+import { personalInfo } from "@/lib/data"
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -16,10 +20,13 @@ const navItems = [
 ]
 
 export function Navbar() {
+  const pathname = usePathname()
+  const router = useRouter()
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -27,18 +34,23 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navItems.map((item) => item.href.substring(1))
-      const scrollPosition = window.scrollY + 100
+      setScrolled(window.scrollY > 24)
+      if (window.scrollY < 120) {
+        setActiveSection("")
+        return
+      }
 
-      for (const section of sections) {
-        const element = document.getElementById(section)
+      const scrollPosition = window.scrollY + 120
+
+      for (const item of navItems) {
+        const element = document.getElementById(item.href.substring(1))
         if (element) {
           const { offsetTop, offsetHeight } = element
           if (
             scrollPosition >= offsetTop &&
             scrollPosition < offsetTop + offsetHeight
           ) {
-            setActiveSection(`#${section}`)
+            setActiveSection(item.href)
             break
           }
         }
@@ -50,115 +62,130 @@ export function Navbar() {
   }, [])
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-      setMobileMenuOpen(false)
-    }
-  }
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-    setActiveSection("")
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" })
     setMobileMenuOpen(false)
   }
 
-  if (!mounted) {
-    return null
+  const scrollToTop = () => {
+    setActiveSection("")
+    setMobileMenuOpen(false)
+
+    if (pathname !== "/") {
+      router.push("/")
+      return
+    }
+
+    const top = document.getElementById("top")
+    if (top) {
+      top.scrollIntoView({ behavior: "smooth", block: "start" })
+      return
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
   }
 
+  if (!mounted) return null
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <button
-            onClick={scrollToTop}
-            className="text-xl font-bold text-foreground hover:text-primary transition-colors font-display tracking-tight cursor-pointer"
-            aria-label="Scroll to top"
-          >
-            Nurlan Mammadli
-          </button>
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6">
+      <nav
+        className={cn(
+          "mx-auto flex max-w-6xl items-center justify-between rounded-full border px-4 py-2 transition-all duration-300 sm:px-6",
+          scrolled
+            ? "glass-panel shadow-lg shadow-black/10"
+            : "border-transparent bg-transparent"
+        )}
+      >
+        <Link
+          href="/"
+          onClick={(event) => {
+            if (pathname === "/") {
+              event.preventDefault()
+              scrollToTop()
+            }
+          }}
+          className="font-display text-base font-bold tracking-tight transition-colors hover:text-primary sm:text-lg"
+          aria-label="Scroll to top"
+        >
+          {personalInfo.name.split(" ")[0]}
+          <span className="text-primary">.</span>
+        </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
-            {navItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => scrollToSection(item.href)}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
-                  activeSection === item.href
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                )}
-              >
-                {item.label}
-              </button>
-            ))}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
+        <div className="hidden items-center gap-1 md:flex">
+          {navItems.map((item) => (
+            <button
+              key={item.href}
+              onClick={() => scrollToSection(item.href)}
+              className={cn(
+                "rounded-full px-3 py-2 text-sm font-medium transition-all",
+                activeSection === item.href
+                  ? "bg-primary/15 text-primary"
+                  : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
               )}
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              aria-label="Toggle theme"
             >
-              {theme === "dark" ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
-            </Button>
-          </div>
+              {item.label}
+            </button>
+          ))}
         </div>
 
-        {/* Mobile Menu */}
+        <div className="flex items-center gap-1">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="rounded-full"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? (
+              <Sun className="h-5 w-5" />
+            ) : (
+              <Moon className="h-5 w-5" />
+            )}
+          </Button>
+
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="rounded-full md:hidden"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
+          </Button>
+        </div>
+      </nav>
+
+      <AnimatePresence>
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
-            {navItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => scrollToSection(item.href)}
-                className={cn(
-                  "block w-full text-left py-2 text-sm font-medium transition-colors",
-                  activeSection === item.href
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            className="glass-panel mx-auto mt-3 max-w-6xl overflow-hidden rounded-3xl border md:hidden"
+          >
+            <div className="grid gap-1 p-3">
+              {navItems.map((item) => (
+                <button
+                  key={item.href}
+                  onClick={() => scrollToSection(item.href)}
+                  className={cn(
+                    "rounded-2xl px-4 py-3 text-left text-sm font-medium transition-colors",
+                    activeSection === item.href
+                      ? "bg-primary/15 text-primary"
+                      : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+                  )}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </motion.div>
         )}
-      </div>
-    </nav>
+      </AnimatePresence>
+    </header>
   )
 }
-

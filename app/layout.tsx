@@ -1,18 +1,27 @@
 import type { Metadata } from "next"
-import { Inter, Space_Grotesk } from "next/font/google"
+import { Syne, DM_Sans, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { AmbientBackground } from "@/components/ambient-background"
+import { CursorSpotlight } from "@/components/cursor-spotlight"
+import { ScrollProgress } from "@/components/scroll-progress"
 import { personalInfo } from "@/lib/data"
 
-const inter = Inter({ 
+const syne = Syne({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-syne",
   display: "swap",
 })
 
-const spaceGrotesk = Space_Grotesk({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-dm-sans",
+  display: "swap",
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
   display: "swap",
 })
 
@@ -25,11 +34,12 @@ export const metadata: Metadata = {
     "Computer Science",
     "UCF",
     "Full-Stack Developer",
-    "Backend Developer",
-    "React",
+    "Mobile Developer",
+    "React Native",
     "Node.js",
-    "Django",
+    "Azure",
     "AI/ML",
+    "Developer Tooling",
   ],
   authors: [{ name: personalInfo.name }],
   creator: personalInfo.name,
@@ -59,17 +69,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans`}>
+      <body
+        className={`${syne.variable} ${dmSans.variable} ${jetbrainsMono.variable} font-sans`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
+          <AmbientBackground />
+          <CursorSpotlight />
+          <ScrollProgress />
           {children}
         </ThemeProvider>
       </body>
     </html>
   )
 }
-

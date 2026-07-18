@@ -1,119 +1,116 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ExternalLink, Github, ArrowRight } from "lucide-react"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { ExternalLink, Github, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { projects } from "@/lib/data"
+import { SectionHeader } from "@/components/section-header"
 import Link from "next/link"
+
+const bentoLayouts = [
+  "md:col-span-2 md:row-span-2",
+  "md:col-span-1",
+  "md:col-span-1",
+]
 
 export function Projects() {
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+    <section id="projects" className="relative px-4 py-24 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl font-bold mb-4 font-display tracking-tight">Projects</h2>
-          <div className="h-1 w-20 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-8" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A collection of projects I&apos;ve built, from hackathon apps to
-            research prototypes.
-          </p>
-        </motion.div>
+        <SectionHeader
+          label="04 — Projects"
+          title="Selected work."
+          description="Hackathon builds, personal apps, and the kind of projects I like talking about in interviews."
+          align="center"
+        />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:auto-rows-[minmax(220px,auto)]">
           {projects.map((project, index) => (
-            <motion.div
+            <motion.article
               key={project.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className={`group glass-panel card-hover relative overflow-hidden rounded-3xl p-6 ${bentoLayouts[index] ?? ""}`}
             >
-              <Card className="h-full flex flex-col hover:border-primary/50 transition-all">
-                <CardHeader>
-                  <div className="flex items-start justify-between mb-2">
-                    <div className="flex items-center gap-2">
-                      <span className="text-primary/60 font-mono text-xs">$</span>
-                      <CardTitle className="text-2xl font-display">{project.title}</CardTitle>
-                    </div>
-                    <span className="text-xs text-muted-foreground font-mono bg-muted px-2 py-1 rounded">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+              <div className="relative flex h-full flex-col">
+                <div className="mb-4 flex items-start justify-between gap-4">
+                  <div>
+                    <p className="font-mono text-xs uppercase tracking-[0.15em] text-primary">
                       {project.year}
+                    </p>
+                    <h3 className="mt-2 font-display text-2xl font-bold sm:text-3xl">
+                      {project.title}
+                    </h3>
+                  </div>
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="rounded-full border border-border/70 p-2 text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                    aria-label={`View ${project.title} details`}
+                  >
+                    <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+                </div>
+
+                <p className="mb-5 flex-1 text-muted-foreground">
+                  {project.shortDescription}
+                </p>
+
+                <div className="mb-5 flex flex-wrap gap-2">
+                  {project.tech.slice(0, index === 0 ? 6 : 4).map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-full border border-primary/15 bg-primary/10 px-2.5 py-1 font-mono text-xs text-primary"
+                    >
+                      {tech}
                     </span>
-                  </div>
-                  <p className="text-muted-foreground">
-                    {project.shortDescription}
-                  </p>
-                </CardHeader>
-                <CardContent className="flex-1">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.slice(0, 4).map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md border border-primary/20"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.tech.length > 4 && (
-                      <span className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded-md">
-                        +{project.tech.length - 4} more
-                      </span>
-                    )}
-                  </div>
-                  <ul className="space-y-1 text-sm text-muted-foreground">
-                    {project.highlights.slice(0, 3).map((highlight, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="text-primary mt-1 font-mono">→</span>
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardFooter className="flex gap-2">
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-2">
                   {project.github && (
-                    <Button variant="outline" size="sm" asChild>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      asChild
+                      className="rounded-full bg-background/40"
+                    >
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <Github className="mr-2 h-4 w-4" />
-                        Code
+                        View code
                       </a>
                     </Button>
                   )}
                   {project.demo && (
-                    <Button variant="outline" size="sm" asChild>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      asChild
+                      className="rounded-full bg-background/40"
+                    >
                       <a
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <ExternalLink className="mr-2 h-4 w-4" />
-                        Demo
+                        Live demo
                       </a>
                     </Button>
                   )}
-                  <Button variant="ghost" size="sm" asChild className="ml-auto">
-                    <Link href={`/projects/${project.slug}`}>
-                      Learn More
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardFooter>
-              </Card>
-            </motion.div>
+                </div>
+              </div>
+            </motion.article>
           ))}
         </div>
       </div>
     </section>
   )
 }
-

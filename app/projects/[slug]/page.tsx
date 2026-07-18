@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { projects } from "@/lib/data"
+import { projects, personalInfo } from "@/lib/data"
 import { Navbar } from "@/components/navbar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -31,7 +31,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${project.title} - Nurlan Mammadli`,
+    title: `${project.title} - ${personalInfo.name}`,
     description: project.description,
   }
 }
@@ -124,7 +124,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
           {/* Problem Statement */}
           {project.problem && (
-            <Card className="mb-8">
+              <Card className="glass-panel mb-8 rounded-2xl border-border/60">
               <CardContent className="p-6">
                 <h2 className="text-2xl font-semibold mb-4">Problem</h2>
                 <p className="text-muted-foreground leading-relaxed">
@@ -136,7 +136,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
           {/* My Role & Contributions */}
           {project.contributions && (
-            <Card className="mb-8">
+              <Card className="glass-panel mb-8 rounded-2xl border-border/60">
               <CardContent className="p-6">
                 <h2 className="text-2xl font-semibold mb-4">
                   My Role & Contributions
@@ -149,7 +149,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           )}
 
           {/* Main Features */}
-          <Card className="mb-8">
+              <Card className="glass-panel mb-8 rounded-2xl border-border/60">
             <CardContent className="p-6">
               <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
               <ul className="space-y-2">
@@ -168,7 +168,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
           {/* Challenges & Learnings */}
           {project.challenges && (
-            <Card className="mb-8">
+              <Card className="glass-panel mb-8 rounded-2xl border-border/60">
               <CardContent className="p-6">
                 <h2 className="text-2xl font-semibold mb-4">
                   Challenges & What I Learned

@@ -1,122 +1,99 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { BookOpen, Code, Link as LinkIcon } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { projects } from "@/lib/data"
-import Link from "next/link"
+import { BookOpen } from "lucide-react"
+import { experiences } from "@/lib/data"
+import { SectionHeader } from "@/components/section-header"
 
-const researchProjects = projects.filter((p) =>
-  p.slug.includes("research") || p.slug.includes("codeql")
+const researchExperiences = experiences.filter((exp) =>
+  exp.title.toLowerCase().includes("research")
 )
 
 export function Research() {
   return (
-    <section id="research" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="research" className="relative px-4 py-24 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-4xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl font-bold mb-4 font-display tracking-tight">Research & Technical Work</h2>
-          <div className="h-1 w-20 bg-gradient-to-r from-transparent via-primary to-transparent mb-8" />
-        </motion.div>
+        <SectionHeader
+          label="05 — Research"
+          title="Research & foundations."
+          description="System optimization work at UCF and the coursework that shaped how I think about software."
+        />
 
-        <div className="space-y-6 mb-12">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg text-muted-foreground leading-relaxed"
-          >
-            I&apos;m actively involved in research at UCF, focusing on areas
-            like security analysis, AI/ML applications, and system optimization.
-            Here are some of my research projects and technical contributions.
-          </motion.p>
-        </div>
-
-        {/* Research Projects */}
-        {researchProjects.length > 0 && (
-          <div className="space-y-6 mb-12">
-            {researchProjects.map((project, index) => (
+        {researchExperiences.length > 0 && (
+          <div className="mb-8 space-y-6">
+            {researchExperiences.map((exp, index) => (
               <motion.div
-                key={project.id}
+                key={exp.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ x: 5 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className="glass-panel card-hover rounded-2xl p-6"
               >
-                <Card className="hover:border-primary/50 transition-all">
-                  <CardHeader>
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <CardTitle className="text-2xl mb-2">
-                          {project.title}
-                        </CardTitle>
-                        <p className="text-muted-foreground">
-                          {project.shortDescription}
-                        </p>
-                      </div>
-                      <span className="text-sm text-muted-foreground">
-                        {project.year}
-                      </span>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tech.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md border border-primary/20"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                    <Link
-                      href={`/projects/${project.slug}`}
-                      className="text-primary hover:underline inline-flex items-center gap-2"
+                <div className="mb-4 flex items-start justify-between gap-4">
+                  <div>
+                    <p className="font-mono text-xs uppercase tracking-[0.15em] text-primary">
+                      {exp.period}
+                    </p>
+                    <h3 className="mt-2 font-display text-2xl font-semibold">
+                      {exp.title}
+                    </h3>
+                    <p className="mt-1 text-muted-foreground">{exp.company}</p>
+                  </div>
+                </div>
+
+                <ul className="space-y-3">
+                  {exp.description.map((item, itemIndex) => (
+                    <li
+                      key={itemIndex}
+                      className="flex items-start gap-3 text-muted-foreground"
                     >
-                      Read more about this research
-                      <LinkIcon className="h-4 w-4" />
-                    </Link>
-                  </CardContent>
-                </Card>
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {exp.skills && (
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {exp.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-full border border-primary/15 bg-primary/10 px-3 py-1 font-mono text-xs text-primary"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
         )}
 
-        {/* Coursework */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="glass-panel rounded-2xl p-6"
         >
-          <Card>
-            <CardHeader>
-              <div className="flex items-center gap-3">
-                <BookOpen className="h-6 w-6 text-primary" />
-                <CardTitle className="text-xl">Coursework & Foundations</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Discrete Mathematics, Data Structures & Algorithms, Computer
-                Organization, Calculus, Linear Algebra, Physics, and more. I
-                believe strong theoretical foundations are essential for
-                building robust software systems.
-              </p>
-            </CardContent>
-          </Card>
+          <div className="mb-4 flex items-center gap-3">
+            <div className="rounded-xl bg-primary/10 p-3 text-primary">
+              <BookOpen className="h-5 w-5" />
+            </div>
+            <h3 className="font-display text-xl font-semibold">
+              Coursework & Foundations
+            </h3>
+          </div>
+          <p className="leading-relaxed text-muted-foreground">
+            Bachelor of Science in Computer Science at UCF (Aug 2023 – Aug
+            2027). Coursework includes Discrete Mathematics, Data Structures
+            &amp; Algorithms, Computer Organization, Calculus, Linear Algebra,
+            and Physics.
+          </p>
         </motion.div>
       </div>
     </section>
   )
 }
-

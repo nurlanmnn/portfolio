@@ -10,7 +10,7 @@ import { Contact } from "@/components/sections/contact"
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="relative min-h-screen">
       <Navbar />
       <Hero />
       <About />
@@ -23,4 +23,3 @@ export default function Home() {
     </main>
   )
 }
-
