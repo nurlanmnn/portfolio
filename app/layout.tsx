@@ -1,45 +1,33 @@
 import type { Metadata } from "next"
-import { Syne, DM_Sans, JetBrains_Mono } from "next/font/google"
+import { Bungee, IBM_Plex_Mono } from "next/font/google"
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { AmbientBackground } from "@/components/ambient-background"
-import { CursorSpotlight } from "@/components/cursor-spotlight"
-import { ScrollProgress } from "@/components/scroll-progress"
 import { personalInfo } from "@/lib/data"
+import { DossierCursor } from "@/components/puzzle/dossier-cursor"
 
-const syne = Syne({
+const bungee = Bungee({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-syne",
+  variable: "--font-bungee",
   display: "swap",
 })
 
-const dmSans = DM_Sans({
+const ibmPlexMono = IBM_Plex_Mono({
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
-  variable: "--font-dm-sans",
-  display: "swap",
-})
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
+  variable: "--font-ibm-plex-mono",
   display: "swap",
 })
 
 export const metadata: Metadata = {
-  title: `${personalInfo.name} - ${personalInfo.role}`,
-  description: personalInfo.bio,
+  title: `${personalInfo.name} — The Mammadli Box`,
+  description:
+    "A puzzle portfolio. Assemble the dossier. Try not to click the decoy buttons.",
   keywords: [
     "Nurlan Mammadli",
     "Software Engineer",
     "Computer Science",
     "UCF",
-    "Full-Stack Developer",
-    "Mobile Developer",
-    "React Native",
-    "Node.js",
-    "Azure",
-    "AI/ML",
-    "Developer Tooling",
+    "Portfolio",
   ],
   authors: [{ name: personalInfo.name }],
   creator: personalInfo.name,
@@ -47,13 +35,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://nurlanmammadli.dev",
-    title: `${personalInfo.name} - ${personalInfo.role}`,
+    title: `${personalInfo.name} — The Mammadli Box`,
     description: personalInfo.bio,
     siteName: personalInfo.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${personalInfo.name} - ${personalInfo.role}`,
+    title: `${personalInfo.name} — The Mammadli Box`,
     description: personalInfo.bio,
   },
   robots: {
@@ -68,21 +56,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
-        className={`${syne.variable} ${dmSans.variable} ${jetbrainsMono.variable} font-sans`}
+        className={`${bungee.variable} ${ibmPlexMono.variable} font-mono antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <AmbientBackground />
-          <CursorSpotlight />
-          <ScrollProgress />
-          {children}
-        </ThemeProvider>
+        <DossierCursor />
+        {children}
       </body>
     </html>
   )

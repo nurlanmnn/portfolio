@@ -1,10 +1,7 @@
 import { notFound } from "next/navigation"
 import { projects, personalInfo } from "@/lib/data"
-import { Navbar } from "@/components/navbar"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { ArrowLeft, ExternalLink, Github, Calendar, User } from "lucide-react"
-import Link from "next/link"
+import { BackToDossier } from "@/components/puzzle/back-to-dossier"
+import { ExternalLink, Github, Calendar, User } from "lucide-react"
 import type { Metadata } from "next"
 
 interface ProjectPageProps {
@@ -31,7 +28,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${project.title} - ${personalInfo.name}`,
+    title: `${project.title} — Case File | ${personalInfo.name}`,
     description: project.description,
   }
 }
@@ -44,144 +41,123 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <main className="min-h-screen">
-      <Navbar />
-      <div className="pt-20 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto max-w-4xl">
-          {/* Back Button */}
-          <Link href="/#projects">
-            <Button variant="ghost" className="mb-8">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Projects
-            </Button>
-          </Link>
+    <main className="min-h-screen bg-manilla">
+      <div className="pointer-events-none absolute inset-0 bg-grid-paper opacity-30" />
+      <div className="relative px-4 pb-20 pt-8 sm:px-8">
+        <div className="mx-auto max-w-3xl">
+          <BackToDossier />
 
-          {/* Header */}
-          <div className="mb-8">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+          <div className="mt-8 rotate-[-0.5deg] border-4 border-ink bg-white/70 p-6 shadow-[10px_10px_0_#c41e3a] sm:p-8">
+            <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-stamp">
+              Exhibit — Case File
+            </p>
+            <h1 className="mt-2 font-display text-4xl uppercase leading-none sm:text-5xl">
               {project.title}
             </h1>
-            <p className="text-xl text-muted-foreground mb-6">
+            <p className="mt-4 font-mono text-sm leading-relaxed text-ink/75">
               {project.description}
             </p>
 
-            {/* Meta Info */}
-            <div className="flex flex-wrap gap-4 mb-6 text-sm text-muted-foreground">
+            <div className="mt-6 flex flex-wrap gap-4 font-mono text-xs text-ink/55">
               {project.year && (
                 <div className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4" />
+                  <Calendar className="h-3.5 w-3.5" />
                   <span>{project.year}</span>
                 </div>
               )}
               {project.role && (
                 <div className="flex items-center gap-2">
-                  <User className="h-4 w-4" />
+                  <User className="h-3.5 w-3.5" />
                   <span>{project.role}</span>
                 </div>
               )}
             </div>
 
-            {/* Tech Stack */}
-            <div className="flex flex-wrap gap-2 mb-6">
+            <div className="mt-5 flex flex-wrap gap-2">
               {project.tech.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1.5 bg-primary/10 text-primary rounded-md text-sm font-medium border border-primary/20"
+                  className="border border-ink/25 bg-manilla px-2 py-1 font-mono text-[10px]"
                 >
                   {tech}
                 </span>
               ))}
             </div>
 
-            {/* Links */}
-            <div className="flex flex-wrap gap-4">
+            <div className="mt-6 flex flex-wrap gap-3">
               {project.github && (
-                <Button variant="outline" asChild>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Github className="mr-2 h-4 w-4" />
-                    View Code
-                  </a>
-                </Button>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border-2 border-ink bg-ink px-4 py-2 font-mono text-xs font-bold uppercase text-highlighter"
+                >
+                  <Github className="h-4 w-4" />
+                  View code
+                </a>
               )}
               {project.demo && (
-                <Button variant="outline" asChild>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    Live Demo
-                  </a>
-                </Button>
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border-2 border-ink bg-white px-4 py-2 font-mono text-xs font-bold uppercase"
+                >
+                  <ExternalLink className="h-4 w-4" />
+                  Live demo
+                </a>
               )}
             </div>
           </div>
 
-          {/* Problem Statement */}
           {project.problem && (
-              <Card className="glass-panel mb-8 rounded-2xl border-border/60">
-              <CardContent className="p-6">
-                <h2 className="text-2xl font-semibold mb-4">Problem</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  {project.problem}
-                </p>
-              </CardContent>
-            </Card>
+            <section className="mt-6 border-2 border-ink bg-white/55 p-6 shadow-[5px_5px_0_#1c1917]">
+              <h2 className="font-display text-xl uppercase text-stamp">
+                The Problem
+              </h2>
+              <p className="mt-3 font-mono text-sm leading-relaxed text-ink/80">
+                {project.problem}
+              </p>
+            </section>
           )}
 
-          {/* My Role & Contributions */}
           {project.contributions && (
-              <Card className="glass-panel mb-8 rounded-2xl border-border/60">
-              <CardContent className="p-6">
-                <h2 className="text-2xl font-semibold mb-4">
-                  My Role & Contributions
-                </h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  {project.contributions}
-                </p>
-              </CardContent>
-            </Card>
+            <section className="mt-5 rotate-[0.4deg] border-2 border-ink bg-white/55 p-6 shadow-[5px_5px_0_#1c1917]">
+              <h2 className="font-display text-xl uppercase text-stamp">
+                What I Did
+              </h2>
+              <p className="mt-3 font-mono text-sm leading-relaxed text-ink/80">
+                {project.contributions}
+              </p>
+            </section>
           )}
 
-          {/* Main Features */}
-              <Card className="glass-panel mb-8 rounded-2xl border-border/60">
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
-              <ul className="space-y-2">
-                {project.highlights.map((highlight, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-2 text-muted-foreground"
-                  >
-                    <span className="text-primary mt-2">•</span>
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+          <section className="mt-5 border-2 border-ink bg-white/55 p-6 shadow-[5px_5px_0_#1c1917]">
+            <h2 className="font-display text-xl uppercase text-stamp">
+              Key Features
+            </h2>
+            <ul className="mt-3 space-y-2 font-mono text-sm text-ink/80">
+              {project.highlights.map((highlight) => (
+                <li key={highlight} className="flex gap-2">
+                  <span className="text-stamp">▸</span>
+                  {highlight}
+                </li>
+              ))}
+            </ul>
+          </section>
 
-          {/* Challenges & Learnings */}
           {project.challenges && (
-              <Card className="glass-panel mb-8 rounded-2xl border-border/60">
-              <CardContent className="p-6">
-                <h2 className="text-2xl font-semibold mb-4">
-                  Challenges & What I Learned
-                </h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  {project.challenges}
-                </p>
-              </CardContent>
-            </Card>
+            <section className="mt-5 border-2 border-dashed border-ink/40 bg-manilla-dark/50 p-6">
+              <h2 className="font-display text-xl uppercase">
+                Challenges & Learnings
+              </h2>
+              <p className="mt-3 font-mono text-sm leading-relaxed text-ink/75">
+                {project.challenges}
+              </p>
+            </section>
           )}
         </div>
       </div>
     </main>
   )
 }
-

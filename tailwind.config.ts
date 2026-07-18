@@ -18,9 +18,9 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
-        display: ["var(--font-syne)", "system-ui", "sans-serif"],
-        mono: ["var(--font-jetbrains-mono)", "ui-monospace", "monospace"],
+        sans: ["var(--font-ibm-plex-mono)", "ui-monospace", "monospace"],
+        display: ["var(--font-bungee)", "system-ui", "sans-serif"],
+        mono: ["var(--font-ibm-plex-mono)", "ui-monospace", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -28,6 +28,13 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        manilla: {
+          DEFAULT: "#e8dcc4",
+          dark: "#ddd0b4",
+        },
+        ink: "#1c1917",
+        stamp: "#c41e3a",
+        highlighter: "#fde047",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
