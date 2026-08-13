@@ -639,7 +639,7 @@ export function PuzzlePortfolio() {
             <button
               key={d.id}
               type="button"
-              className="absolute z-20 border border-ink/30 bg-white/80 px-2 py-1 font-mono text-[9px] uppercase tracking-wider text-ink/50 transition-colors hover:border-stamp hover:text-stamp sm:text-[10px]"
+              className="absolute z-[55] border border-ink/30 bg-white/80 px-3 py-2 font-mono text-[9px] uppercase tracking-wider text-ink/50 transition-colors before:absolute before:-inset-2 before:content-[''] hover:border-stamp hover:text-stamp sm:text-[10px]"
               style={{
                 left: `${d.x}%`,
                 top: `${d.y}%`,

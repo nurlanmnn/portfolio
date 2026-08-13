@@ -161,6 +161,10 @@ html.dossier-cursor-active textarea {
 }
 
 /* Pushpin cursor */
+.dossier-cursor-root {
+  contain: layout style;
+}
+
 .dossier-cursor-pin {
   position: relative;
   width: 20px;
@@ -171,7 +175,7 @@ html.dossier-cursor-active textarea {
   position: absolute;
   left: 50%;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   display: block;
   width: 16px;
   height: 16px;
@@ -181,6 +185,11 @@ html.dossier-cursor-active textarea {
   box-shadow:
     0 2px 4px rgba(28, 25, 23, 0.35),
     inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.dossier-cursor-pin.is-pressed .dossier-cursor-pin-head {
+  transform: translateY(2px);
 }
 
 html.dossier-cursor-golden .dossier-cursor-pin-head {
@@ -201,23 +210,16 @@ html.dossier-cursor-golden .dossier-cursor-pin-head {
 .dossier-cursor-pin-needle {
   position: absolute;
   left: 50%;
-  top: 12px;
+  top: 13px;
+  z-index: 1;
   display: block;
-  width: 2px;
-  height: 14px;
-  margin-left: -1px;
+  width: 3px;
+  height: 15px;
+  margin-left: -1.5px;
   border-radius: 1px;
-  background: linear-gradient(180deg, #a3a3a3, #525252);
+  background: linear-gradient(180deg, #737373 0%, #525252 55%, #404040 100%);
   transform: rotate(6deg);
   transform-origin: top center;
-}
-
-.dossier-cursor-pin-ripple {
-  width: 20px;
-  height: 20px;
-  margin-top: 2px;
-  border: 2px solid #c41e3a;
-  border-radius: 50%;
   pointer-events: none;
 }
 
