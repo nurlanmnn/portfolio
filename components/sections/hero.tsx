@@ -16,7 +16,7 @@ const bootLines = [
 
 const stats = [
   { value: "3+", label: "Projects shipped" },
-  { value: "2026", label: "Tech intern @ B&B" },
+  { value: "2026", label: "Intern @ Brown & Brown" },
   { value: "UCF", label: "Computer Science" },
 ]
 

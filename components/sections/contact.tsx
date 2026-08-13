@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Mail, Linkedin, Github, ArrowUpRight } from "lucide-react"
+import { Mail, Linkedin, Github, ArrowUpRight, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { personalInfo } from "@/lib/data"
 import { SectionHeader } from "@/components/section-header"
@@ -32,14 +32,14 @@ export function Contact() {
           align="center"
         />
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
           <motion.a
             href={`mailto:${personalInfo.email}`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="group glass-panel card-hover relative overflow-hidden rounded-3xl p-6 md:col-span-1"
+            className="group glass-panel card-hover relative overflow-hidden rounded-3xl p-6"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/15 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
             <div className="relative flex h-full flex-col items-center text-center">
@@ -58,6 +58,33 @@ export function Contact() {
             </div>
           </motion.a>
 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.08 }}
+            className="glass-panel rounded-3xl p-6"
+            aria-label="Phone number hidden for privacy"
+          >
+            <div className="flex h-full flex-col items-center text-center">
+              <div className="mb-4 rounded-2xl bg-muted p-4 text-foreground">
+                <Phone className="h-7 w-7" />
+              </div>
+              <p className="font-mono text-xs uppercase tracking-[0.15em] text-primary">
+                Phone
+              </p>
+              <p
+                className="mt-3 select-none font-mono text-sm text-muted-foreground blur-[4px]"
+                aria-hidden="true"
+              >
+                {personalInfo.phoneDisplay}
+              </p>
+              <p className="mt-auto pt-6 text-xs text-muted-foreground">
+                Available upon request
+              </p>
+            </div>
+          </motion.div>
+
           {contactLinks.map((link, index) => (
             <motion.a
               key={link.label}
@@ -67,7 +94,7 @@ export function Contact() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.08 * (index + 1) }}
+              transition={{ duration: 0.5, delay: 0.08 * (index + 2) }}
               className="group glass-panel card-hover rounded-3xl p-6"
             >
               <div className="flex h-full flex-col items-center text-center">

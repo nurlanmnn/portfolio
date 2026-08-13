@@ -37,6 +37,7 @@ export interface PersonalInfo {
   location: string
   email: string
   phone: string
+  phoneDisplay: string
   linkedin: string
   github: string
   resume: string
@@ -52,15 +53,16 @@ export interface PersonalInfo {
 export const personalInfo: PersonalInfo = {
   name: "Nurlan Mammadli",
   role: "Computer Science Student & Software Engineer",
-  location: "Orlando, Florida",
+  location: "Orlando, Florida, United States",
   email: "nurlanmmadli1@gmail.com",
   phone: "+1-407-276-1783",
+  phoneDisplay: "+1 (***) ***-****",
   linkedin: "https://linkedin.com/in/nurlan-mammadli",
   github: "https://github.com/nurlanmnn",
   resume: "/Nurlan_Mammadli_Resume.pdf",
   bio: "Computer Science student at the University of Central Florida and Technology Solutions Intern at Brown & Brown. I build full-stack and mobile applications, developer tooling, and AI-powered automation — from VS Code extensions to production CI/CD pipelines.",
   quickFacts: {
-    education: "CS @ UCF",
+    education: "B.S. Computer Science @ UCF (2023–2027)",
     location: "Orlando, Florida",
     lookingFor: "Software engineering opportunities",
     learning: "AI/ML, developer tooling, automation",
@@ -76,8 +78,8 @@ export const projects: Project[] = [
       "A roommate coordination app to help you and your roommates manage shared living expenses, shopping lists, calendar events, and household goals.",
     shortDescription:
       "Roommate coordination app for shared expenses, shopping lists, and household goals.",
-    year: "2025",
-    role: "Full-Stack Developer",
+    year: "2025–Present",
+    role: "Personal Project",
     tech: [
       "React Native",
       "Expo",
@@ -110,7 +112,7 @@ export const projects: Project[] = [
     shortDescription:
       "Mobile app for UCF students to find and join pickup sports sessions.",
     year: "2025",
-    role: "Full-Stack Developer",
+    role: "Knight Hacks VIII Hackathon",
     tech: ["React Native", "Expo", "TypeScript", "Supabase"],
     github: "https://github.com/nurlanmnn/pickup-ucf",
     highlights: [
@@ -135,14 +137,14 @@ export const projects: Project[] = [
     shortDescription:
       "AI-powered career recommendation system using LLMs to match skills with career paths.",
     year: "2025",
-    role: "Backend Developer",
-    tech: ["Node.js", "Express", "Gemini API", "MongoDB", "React"],
+    role: "Knight Hacks Project Launch (Spring 2025)",
+    tech: ["Node.js", "Express", "Gemini API"],
     github: "https://github.com/EthanDelCampo/SkillMatchAI",
     highlights: [
       "Built at Knight Hacks Project Launch (Spring 2025)",
-      "Suggests roles based on skills and preferences",
-      "Generates personalized learning suggestions",
-      "RESTful API with efficient data handling and validation",
+      "RESTful API endpoints for survey data and career suggestions",
+      "Efficient data handling, validation, and frontend integration",
+      "AI-powered career recommendations via Gemini API",
     ],
     problem:
       "Students often struggle to identify career paths that align with their skills and interests, leading to uncertainty in academic and professional decisions.",
@@ -156,13 +158,25 @@ export const projects: Project[] = [
 export const experiences: ExperienceItem[] = [
   {
     id: "1",
+    title: "Undergraduate Learning Assistant",
+    company: "University of Central Florida, College of Sciences",
+    location: "Orlando, FL",
+    period: "Aug 2024 - Present",
+    description: [
+      "Facilitated student comprehension in Calculus I at the Mathematics Assistance and Learning Lab (MALL), demonstrating a passion for learning and problem-solving.",
+      "Collaborated with peers to adapt instructional techniques, reflecting an eagerness to learn and a commitment to innovative, digital solutions in educational settings.",
+    ],
+    skills: ["Teaching", "Communication", "Mathematics", "Problem-Solving"],
+  },
+  {
+    id: "2",
     title: "Technology Solutions Intern",
     company: "Brown & Brown, Inc.",
     location: "Daytona Beach, FL",
-    period: "May 2026 - Present",
+    period: "May 2026 - August 2026",
     description: [
-      "Built an AI-powered VS Code extension in JavaScript that automates pull request reviews using security, performance, and maintainability agents.",
-      "Developed a Python CI/CD pipeline that converts Markdown documentation to XWiki and publishes only changed pages.",
+      "Built an AI-powered VS Code extension in JavaScript that automates pull request reviews using security, performance, and maintainability agents, reducing estimated review time by up to 80%.",
+      "Developed a Python CI/CD pipeline that replaced manual page-by-page publishing by converting Markdown documentation to XWiki, preserving formatting, publishing only changed pages, and simplifying technical content for non-developers.",
       "Integrated Azure DevOps, Git worktrees, REST APIs, Entra ID authentication, and AI-based documentation rewriting.",
     ],
     skills: [
@@ -173,18 +187,6 @@ export const experiences: ExperienceItem[] = [
       "CI/CD",
       "Entra ID",
     ],
-  },
-  {
-    id: "2",
-    title: "Undergraduate Learning Assistant",
-    company: "University of Central Florida, College of Sciences",
-    location: "Orlando, FL",
-    period: "Aug 2024 - Present",
-    description: [
-      "Facilitated student comprehension in Calculus I at the Mathematics Assistance and Learning Lab (MALL), demonstrating a passion for learning and problem-solving.",
-      "Collaborated with peers to adapt instructional techniques, reflecting an eagerness to learn and a commitment to innovative, digital solutions in educational settings.",
-    ],
-    skills: ["Teaching", "Communication", "Mathematics", "Problem-Solving"],
   },
   {
     id: "3",
@@ -213,6 +215,7 @@ export const skills: SkillCategory[] = [
       "SQL",
       "HTML",
       "CSS",
+      "Swift",
     ],
   },
   {
@@ -241,6 +244,7 @@ export const skills: SkillCategory[] = [
       "Azure DevOps",
       "GitHub Actions",
       "Docker",
+      "Kubernetes",
       "CI/CD",
       "Entra ID",
     ],
@@ -261,6 +265,7 @@ export const skills: SkillCategory[] = [
 ]
 
 export const highlightTags = [
+  "Software Engineering",
   "Full-Stack Development",
   "Mobile Development",
   "AI / ML",
