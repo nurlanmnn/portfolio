@@ -9,7 +9,7 @@ import { personalInfo, highlightTags } from "@/lib/data"
 const bootLines = [
   "> booting portfolio v2.0...",
   "> loading stack: react · node · azure · typescript",
-  "> syncing brown & brown intern pipeline...",
+  "> syncing handshake ai + brown & brown pipelines...",
   "> rendering experience modules...",
   "> status: ready.",
 ]
@@ -17,7 +17,7 @@ const bootLines = [
 const stats = [
   { value: "3+", label: "Projects shipped" },
   { value: "2026", label: "Intern @ Brown & Brown" },
-  { value: "UCF", label: "Computer Science" },
+  { value: "AI", label: "Evaluator @ Handshake" },
 ]
 
 export function Hero() {

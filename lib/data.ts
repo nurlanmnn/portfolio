@@ -60,7 +60,7 @@ export const personalInfo: PersonalInfo = {
   linkedin: "https://linkedin.com/in/nurlan-mammadli",
   github: "https://github.com/nurlanmnn",
   resume: "/Nurlan_Mammadli_Resume.pdf",
-  bio: "Computer Science student at the University of Central Florida and Technology Solutions Intern at Brown & Brown. I build full-stack and mobile applications, developer tooling, and AI-powered automation — from VS Code extensions to production CI/CD pipelines.",
+  bio: "Computer Science student at the University of Central Florida, AI Evaluator at Handshake AI, and Technology Solutions Intern at Brown & Brown. I build full-stack and mobile applications, developer tooling, and AI-powered automation — from VS Code extensions to production CI/CD pipelines.",
   quickFacts: {
     education: "B.S. Computer Science @ UCF (2023–2027)",
     location: "Orlando, Florida",
@@ -78,7 +78,7 @@ export const projects: Project[] = [
       "A roommate coordination app to help you and your roommates manage shared living expenses, shopping lists, calendar events, and household goals.",
     shortDescription:
       "Roommate coordination app for shared expenses, shopping lists, and household goals.",
-    year: "2025–Present",
+    year: "Dec 2025–Present",
     role: "Personal Project",
     tech: [
       "React Native",
@@ -170,13 +170,25 @@ export const experiences: ExperienceItem[] = [
   },
   {
     id: "2",
+    title: "AI Evaluator",
+    company: "Handshake AI",
+    location: "Remote",
+    period: "January 2026 - Present",
+    description: [
+      "Evaluated AI-generated images, videos, and websites for accuracy, instruction following, and overall quality.",
+      "Tested generated web applications for visual issues, broken interactions, and missing requirements.",
+    ],
+    skills: ["AI Evaluation", "Quality Assurance", "Web Testing"],
+  },
+  {
+    id: "3",
     title: "Technology Solutions Intern",
     company: "Brown & Brown, Inc.",
     location: "Daytona Beach, FL",
     period: "May 2026 - August 2026",
     description: [
       "Built an AI-powered VS Code extension in JavaScript that automates pull request reviews using security, performance, and maintainability agents, reducing estimated review time by up to 80%.",
-      "Developed a Python CI/CD pipeline that replaced manual page-by-page publishing by converting Markdown documentation to XWiki, preserving formatting, publishing only changed pages, and simplifying technical content for non-developers.",
+      "Developed a Python CI/CD pipeline that replaced manual page-by-page publishing by converting Markdown documentation to XWiki (a documentation platform), preserving formatting, publishing only changed pages, and simplifying technical content for non-developers.",
       "Integrated Azure DevOps, Git worktrees, REST APIs, Entra ID authentication, and AI-based documentation rewriting.",
     ],
     skills: [
@@ -189,7 +201,7 @@ export const experiences: ExperienceItem[] = [
     ],
   },
   {
-    id: "3",
+    id: "4",
     title: "Undergraduate Research Assistant",
     company:
       "University of Central Florida, College of Engineering and Computer Science",
@@ -224,6 +236,7 @@ export const skills: SkillCategory[] = [
       "React Native",
       "Expo",
       "Node.js",
+      "Next.js",
       "Express.js",
       "Django",
       "Django REST Framework",
@@ -231,6 +244,7 @@ export const skills: SkillCategory[] = [
       "TensorFlow",
       "Scikit-learn",
       "NumPy",
+      "Matplotlib",
     ],
   },
   {

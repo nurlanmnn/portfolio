@@ -35,7 +35,7 @@ export function About() {
         <SectionHeader
           label="01 — About"
           title="Building software that feels inevitable."
-          description="Computer Science at UCF, interning at Brown & Brown, and always shipping something new."
+          description="Computer Science at UCF, evaluating AI at Handshake, interning at Brown & Brown, and always shipping something new."
         />
 
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
@@ -48,10 +48,10 @@ export function About() {
           >
             <p className="text-lg leading-relaxed text-muted-foreground">
               I&apos;m a Computer Science student at the University of Central
-              Florida and a Technology Solutions Intern at Brown &amp; Brown.
-              I&apos;m passionate about building software that solves real
-              problems — from mobile apps and full-stack systems to developer
-              tooling and AI-powered automation.
+              Florida, an AI Evaluator at Handshake AI, and a Technology
+              Solutions Intern at Brown &amp; Brown. I&apos;m passionate about
+              building software that solves real problems — from mobile apps and
+              full-stack systems to developer tooling and AI-powered automation.
             </p>
 
             <p className="text-lg leading-relaxed text-muted-foreground">
