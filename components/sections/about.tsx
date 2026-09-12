@@ -51,13 +51,13 @@ export function About() {
               Florida, an AI Evaluator at Handshake AI, and a Technology
               Solutions Intern at Brown &amp; Brown. I&apos;m passionate about
               building software that solves real problems — from mobile apps and
-              full-stack systems to developer tooling and AI-powered automation.
+              full-stack systems to native iOS apps and AI-powered automation.
             </p>
 
             <p className="text-lg leading-relaxed text-muted-foreground">
               I&apos;m especially drawn to{" "}
               <span className="font-medium text-foreground">
-                full-stack and mobile development
+                full-stack, mobile, and native iOS development
               </span>
               ,{" "}
               <span className="font-medium text-foreground">AI/ML</span>, and{" "}

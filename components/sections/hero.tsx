@@ -8,7 +8,7 @@ import { personalInfo, highlightTags } from "@/lib/data"
 
 const bootLines = [
   "> booting portfolio v2.0...",
-  "> loading stack: react · node · azure · typescript",
+  "> loading stack: swift · react native · node · azure",
   "> syncing handshake ai + brown & brown pipelines...",
   "> rendering experience modules...",
   "> status: ready.",

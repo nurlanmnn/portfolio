@@ -60,12 +60,12 @@ export const personalInfo: PersonalInfo = {
   linkedin: "https://linkedin.com/in/nurlan-mammadli",
   github: "https://github.com/nurlanmnn",
   resume: "/Nurlan_Mammadli_Resume.pdf",
-  bio: "Computer Science student at the University of Central Florida, AI Evaluator at Handshake AI, and Technology Solutions Intern at Brown & Brown. I build full-stack and mobile applications, developer tooling, and AI-powered automation — from VS Code extensions to production CI/CD pipelines.",
+  bio: "Computer Science student at the University of Central Florida, AI Evaluator at Handshake AI, and Technology Solutions Intern at Brown & Brown. I build full-stack and mobile applications — from native iOS apps and React Native to developer tooling and AI-powered automation.",
   quickFacts: {
-    education: "B.S. Computer Science @ UCF (2023–2027)",
+    education: "B.S. Computer Science @ UCF (Expected May 2027)",
     location: "Orlando, Florida",
     lookingFor: "Software engineering opportunities",
-    learning: "AI/ML, developer tooling, automation",
+    learning: "AI/ML, native iOS, developer tooling",
   },
 }
 
@@ -75,15 +75,15 @@ export const projects: Project[] = [
     slug: "roomate",
     title: "Roomate",
     description:
-      "A roommate coordination app to help you and your roommates manage shared living expenses, shopping lists, calendar events, and household goals.",
+      "A cross-platform household coordination app for shared expenses, settlements, shopping lists, calendar events, chores, and invite-code household access.",
     shortDescription:
-      "Roommate coordination app for shared expenses, shopping lists, and household goals.",
+      "Cross-platform household app for shared expenses, settlements, and chores.",
     year: "Dec 2025–Present",
     role: "Personal Project",
     tech: [
+      "TypeScript",
       "React Native",
       "Expo",
-      "TypeScript",
       "Node.js",
       "Express",
       "MongoDB",
@@ -91,42 +91,48 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/nurlanmnn/roomate",
     highlights: [
-      "Shared expense tracking for roommates",
-      "Collaborative shopping lists and calendar events",
-      "Household goals and coordination features",
-      "JWT-based authentication",
+      "Shared expense tracking with even or custom splitting",
+      "Balance calculations, settlement history, and spending analytics",
+      "Collaborative shopping lists, calendar events, and chores",
+      "JWT and email OTP authentication with invite-code household access",
     ],
     problem:
-      "Roommates need a single place to coordinate shared living expenses, shopping, schedules, and household goals.",
+      "Roommates need a single place to coordinate shared living expenses, settlements, shopping, schedules, and household chores.",
     contributions:
-      "Built a full-stack TypeScript application with React Native (Expo) and a Node.js backend using Express and MongoDB. Implemented JWT-based authentication and features for managing shared expenses, shopping lists, calendar events, and household goals.",
+      "Built a full-stack TypeScript application with React Native (Expo) and a Node.js backend using Express and MongoDB. Implemented REST APIs with JWT and email OTP authentication, expense splitting, balance calculations, settlement history, and spending analytics.",
     challenges:
-      "Designing data models that handle shared ownership across roommates while keeping permissions and expense splits clear and consistent.",
+      "Designing data models that handle shared ownership across roommates while keeping permissions, expense splits, and settlement flows clear and consistent.",
   },
   {
     id: "2",
     slug: "pickup-ucf",
     title: "PickUp UCF",
     description:
-      "A mobile app for UCF students to find, create, and join pickup sports sessions with real-time chat functionality.",
+      "A native iOS app for UCF students to discover, create, join, and chat in pickup sports sessions with UCF email verification and real-time data.",
     shortDescription:
-      "Mobile app for UCF students to find and join pickup sports sessions.",
-    year: "2025",
-    role: "Knight Hacks VIII Hackathon",
-    tech: ["React Native", "Expo", "TypeScript", "Supabase"],
+      "Native iOS app for UCF students to find and join pickup sports sessions.",
+    year: "Oct 2025–Present",
+    role: "Personal Project",
+    tech: [
+      "Swift",
+      "SwiftUI",
+      "Supabase",
+      "PostgreSQL",
+      "Edge Functions",
+    ],
     github: "https://github.com/nurlanmnn/pickup-ucf",
     highlights: [
-      "Built at Knight Hacks VIII (Oct 2025)",
-      "UCF email verification",
-      "Full CRUD for sports sessions with filtering and search",
-      "Capacity management, skill levels, and real-time chat",
+      "Native iOS app with UCF email verification",
+      "Map-based session discovery with recurring sessions and waitlists",
+      "APNs push notifications and Live Activities",
+      "Real-time chat backed by Supabase Auth, Realtime, and PostgreSQL",
     ],
     problem:
       "UCF students needed a convenient way to organize and join pickup sports games on campus.",
     contributions:
-      "Built a mobile application using React Native (Expo) and TypeScript with a Supabase backend. Implemented UCF email verification, full CRUD operations for sports sessions, filtering and search, capacity management, skill level tracking, and real-time chat for session participants.",
+      "Developed a native iOS app using Swift and SwiftUI with a Supabase backend. Implemented UCF email verification, map-based discovery, recurring sessions, waitlists, APNs push notifications, Live Activities, and real-time chat for session participants.",
     challenges:
-      "Delivering a working mobile app with authentication, sessions, and real-time chat within a tight hackathon timeframe while keeping the UI polished and consistent.",
+      "Integrating Supabase Auth, Realtime, and Edge Functions into a polished native iOS experience while handling push notifications and Live Activities reliably.",
   },
   {
     id: "3",
@@ -136,20 +142,20 @@ export const projects: Project[] = [
       "AI-powered web application that helps students match their skills and interests with potential career paths, using LLMs to analyze user input and provide personalized career recommendations.",
     shortDescription:
       "AI-powered career recommendation system using LLMs to match skills with career paths.",
-    year: "2025",
+    year: "Spring 2025",
     role: "Knight Hacks Project Launch (Spring 2025)",
-    tech: ["Node.js", "Express", "Gemini API"],
+    tech: ["JavaScript", "React", "Node.js", "Express", "Gemini API"],
     github: "https://github.com/EthanDelCampo/SkillMatchAI",
     highlights: [
       "Built at Knight Hacks Project Launch (Spring 2025)",
-      "RESTful API endpoints for survey data and career suggestions",
+      "30-question career assessment with personalized recommendations",
+      "REST endpoint transforms survey responses into three career suggestions via Gemini API",
       "Efficient data handling, validation, and frontend integration",
-      "AI-powered career recommendations via Gemini API",
     ],
     problem:
       "Students often struggle to identify career paths that align with their skills and interests, leading to uncertainty in academic and professional decisions.",
     contributions:
-      "Developed the backend of an AI-powered career recommendation system using Node.js, Express, and the Gemini API. Created RESTful API endpoints to process survey data and return personalized career suggestions, with efficient data handling, validation, and seamless frontend integration.",
+      "Developed the backend for a 30-question career assessment using Node.js, Express, and the Gemini API. Created a REST endpoint that transforms survey responses into three personalized recommendations, with efficient data handling, validation, and seamless frontend integration.",
     challenges:
       "Getting the LLM to follow specific formatting instructions required lots of testing and tweaks. Ensuring fast response times for a smooth user experience during the hackathon timeframe was also a challenge.",
   },
@@ -158,38 +164,14 @@ export const projects: Project[] = [
 export const experiences: ExperienceItem[] = [
   {
     id: "1",
-    title: "Undergraduate Learning Assistant",
-    company: "University of Central Florida, College of Sciences",
-    location: "Orlando, FL",
-    period: "Aug 2024 - Present",
-    description: [
-      "Facilitated student comprehension in Calculus I at the Mathematics Assistance and Learning Lab (MALL), demonstrating a passion for learning and problem-solving.",
-      "Collaborated with peers to adapt instructional techniques, reflecting an eagerness to learn and a commitment to innovative, digital solutions in educational settings.",
-    ],
-    skills: ["Teaching", "Communication", "Mathematics", "Problem-Solving"],
-  },
-  {
-    id: "2",
-    title: "AI Evaluator",
-    company: "Handshake AI",
-    location: "Remote",
-    period: "January 2026 - Present",
-    description: [
-      "Evaluated AI-generated images, videos, and websites for accuracy, instruction following, and overall quality.",
-      "Tested generated web applications for visual issues, broken interactions, and missing requirements.",
-    ],
-    skills: ["AI Evaluation", "Quality Assurance", "Web Testing"],
-  },
-  {
-    id: "3",
     title: "Technology Solutions Intern",
     company: "Brown & Brown, Inc.",
     location: "Daytona Beach, FL",
-    period: "May 2026 - August 2026",
+    period: "May 2026 – Aug 2026",
     description: [
-      "Built an AI-powered VS Code extension in JavaScript that automates pull request reviews using security, performance, and maintainability agents, reducing estimated review time by up to 80%.",
-      "Developed a Python CI/CD pipeline that replaced manual page-by-page publishing by converting Markdown documentation to XWiki (a documentation platform), preserving formatting, publishing only changed pages, and simplifying technical content for non-developers.",
-      "Integrated Azure DevOps, Git worktrees, REST APIs, Entra ID authentication, and AI-based documentation rewriting.",
+      "Built an AI-powered VS Code extension in JavaScript that triaged pull request risk, routed changes to security, performance, and maintainability reviewers, and synced validated findings to GitHub and Azure DevOps, reducing estimated review time by up to 80%.",
+      "Created PR-review benchmarks and evaluated multiple AI models against them to select the strongest models for risk assessment and specialist review stages.",
+      "Automated Markdown-to-XWiki documentation publishing with Python CI/CD, Git worktrees, REST APIs, and Entra ID authentication, replacing manual page-by-page updates while preserving formatting and publishing only changed pages.",
     ],
     skills: [
       "JavaScript",
@@ -201,17 +183,38 @@ export const experiences: ExperienceItem[] = [
     ],
   },
   {
-    id: "4",
+    id: "2",
+    title: "AI Evaluator",
+    company: "Handshake AI",
+    location: "Remote",
+    period: "Jan 2026 – Present",
+    description: [
+      "Evaluated AI-generated images, videos, and websites for accuracy and instruction following; tested generated web applications for visual defects, broken interactions, and missing requirements.",
+    ],
+    skills: ["AI Evaluation", "Quality Assurance", "Web Testing"],
+  },
+  {
+    id: "3",
     title: "Undergraduate Research Assistant",
     company:
       "University of Central Florida, College of Engineering and Computer Science",
     location: "Orlando, FL",
-    period: "Jan 2025 - May 2025",
+    period: "Jan 2025 – May 2025",
     description: [
-      "Conducted research on continuous Linux kernel fuzzing, optimizing configurations to maximize patch coverage and minimize downtime.",
-      "Leveraged hands-on technical expertise and analytical skills to resolve complex system challenges in a collaborative development environment.",
+      "Researched continuous Linux kernel fuzzing and optimized configurations to increase patch coverage while minimizing downtime.",
     ],
     skills: ["Linux", "Fuzzing", "System Optimization", "Research"],
+  },
+  {
+    id: "4",
+    title: "Undergraduate Learning Assistant",
+    company: "University of Central Florida, College of Sciences",
+    location: "Orlando, FL",
+    period: "Aug 2024 – Present",
+    description: [
+      "Guided Calculus I students through problem-solving in the Mathematics Assistance and Learning Lab and adapted explanations to different learning needs.",
+    ],
+    skills: ["Teaching", "Communication", "Mathematics", "Problem-Solving"],
   },
 ]
 
@@ -222,12 +225,12 @@ export const skills: SkillCategory[] = [
       "Python",
       "TypeScript",
       "JavaScript",
+      "Swift",
       "Java",
       "C",
       "SQL",
       "HTML",
       "CSS",
-      "Swift",
     ],
   },
   {
@@ -235,32 +238,29 @@ export const skills: SkillCategory[] = [
     skills: [
       "React Native",
       "Expo",
+      "SwiftUI",
+      "React",
       "Node.js",
-      "Next.js",
       "Express.js",
       "Django",
       "Django REST Framework",
       "PyTorch",
       "TensorFlow",
-      "Scikit-learn",
-      "NumPy",
-      "Matplotlib",
+      "scikit-learn",
     ],
   },
   {
-    name: "Databases",
-    skills: ["PostgreSQL", "MongoDB", "Supabase"],
-  },
-  {
-    name: "Cloud & DevOps",
+    name: "Databases & Cloud",
     skills: [
+      "PostgreSQL",
+      "MongoDB",
+      "Supabase",
       "Azure",
       "Azure DevOps",
       "GitHub Actions",
       "Docker",
       "Kubernetes",
       "CI/CD",
-      "Entra ID",
     ],
   },
   {
@@ -282,6 +282,7 @@ export const highlightTags = [
   "Software Engineering",
   "Full-Stack Development",
   "Mobile Development",
+  "Native iOS",
   "AI / ML",
   "Developer Tooling",
   "Automation",

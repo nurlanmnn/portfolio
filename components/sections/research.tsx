@@ -87,8 +87,8 @@ export function Research() {
             </h3>
           </div>
           <p className="leading-relaxed text-muted-foreground">
-            Bachelor of Science in Computer Science at UCF (Aug 2023 – Aug
-            2027). Coursework includes Discrete Mathematics, Data Structures
+            Bachelor of Science in Computer Science at UCF (Expected May 2027).
+            Coursework includes Discrete Mathematics, Data Structures
             &amp; Algorithms, Computer Organization, Calculus, Linear Algebra,
             and Physics.
           </p>
