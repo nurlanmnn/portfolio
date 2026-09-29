@@ -136,28 +136,33 @@ export const projects: Project[] = [
   },
   {
     id: "3",
-    slug: "skillmatch-ai",
-    title: "SkillMatch AI",
+    slug: "flashplanner",
+    title: "FlashPlanner",
     description:
-      "AI-powered web application that helps students match their skills and interests with potential career paths, using LLMs to analyze user input and provide personalized career recommendations.",
+      "A personalized trip planner from ShellHacks 2026 that builds timed, multi-day itineraries from interests, budget, pace, and transportation preferences.",
     shortDescription:
-      "AI-powered career recommendation system using LLMs to match skills with career paths.",
-    year: "Spring 2025",
-    role: "Knight Hacks Project Launch (Spring 2025)",
-    tech: ["JavaScript", "React", "Node.js", "Express", "Gemini API"],
-    github: "https://github.com/EthanDelCampo/SkillMatchAI",
+      "Timed multi-day trip planner that orders stops around real constraints.",
+    year: "ShellHacks 2026",
+    role: "ShellHacks 2026",
+    tech: [
+      "Python",
+      "FastAPI",
+      "Gemini API",
+      "Google Maps APIs",
+      "OR-Tools",
+    ],
     highlights: [
-      "Built at Knight Hacks Project Launch (Spring 2025)",
-      "30-question career assessment with personalized recommendations",
-      "REST endpoint transforms survey responses into three career suggestions via Gemini API",
-      "Efficient data handling, validation, and frontend integration",
+      "Built at ShellHacks 2026",
+      "Timed, multi-day itineraries from interests, budget, pace, and transportation",
+      "Gemini, Google Places, weather forecasts, and real travel times",
+      "OR-Tools orders stops around opening hours and user constraints",
     ],
     problem:
-      "Students often struggle to identify career paths that align with their skills and interests, leading to uncertainty in academic and professional decisions.",
+      "A useful trip plan has to fit interests, budget, pace, and transportation into real opening hours and travel times.",
     contributions:
-      "Developed the backend for a 30-question career assessment using Node.js, Express, and the Gemini API. Created a REST endpoint that transforms survey responses into three personalized recommendations, with efficient data handling, validation, and seamless frontend integration.",
+      "Built a personalized trip planner that creates timed, multi-day itineraries. Combined Gemini, Google Places, weather forecasts, and real travel times with OR-Tools to choose and order stops around opening hours and user constraints.",
     challenges:
-      "Getting the LLM to follow specific formatting instructions required lots of testing and tweaks. Ensuring fast response times for a smooth user experience during the hackathon timeframe was also a challenge.",
+      "Ordering stops so opening hours, travel time, weather, and preferences all hold at once, instead of producing a list that only looks good on paper.",
   },
 ]
 
@@ -231,6 +236,7 @@ export const skills: SkillCategory[] = [
       "SQL",
       "HTML",
       "CSS",
+      "Bash",
     ],
   },
   {
@@ -244,6 +250,7 @@ export const skills: SkillCategory[] = [
       "Express.js",
       "Django",
       "Django REST Framework",
+      "FastAPI",
       "PyTorch",
       "TensorFlow",
       "scikit-learn",
