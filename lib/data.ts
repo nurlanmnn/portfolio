@@ -151,6 +151,7 @@ export const projects: Project[] = [
       "Google Maps APIs",
       "OR-Tools",
     ],
+    github: "https://github.com/s4nsec/shellhacks-flashplanner",
     highlights: [
       "Built at ShellHacks 2026",
       "Timed, multi-day itineraries from interests, budget, pace, and transportation",
