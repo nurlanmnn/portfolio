@@ -48,8 +48,8 @@ export function About() {
           >
             <p className="text-lg leading-relaxed text-muted-foreground">
               I&apos;m a Computer Science student at the University of Central
-              Florida, an AI Evaluator at Handshake AI, and a Technology
-              Solutions Intern at Brown &amp; Brown. I&apos;m passionate about
+              Florida, an AI Evaluator at Handshake AI, and a Software
+              Engineering Intern at Brown &amp; Brown. I&apos;m passionate about
               building software that solves real problems — from mobile apps and
               full-stack systems to native iOS apps and AI-powered automation.
             </p>

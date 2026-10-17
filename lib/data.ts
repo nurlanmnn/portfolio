@@ -60,7 +60,7 @@ export const personalInfo: PersonalInfo = {
   linkedin: "https://linkedin.com/in/nurlan-mammadli",
   github: "https://github.com/nurlanmnn",
   resume: "/Nurlan_Mammadli_Resume.pdf",
-  bio: "Computer Science student at the University of Central Florida, AI Evaluator at Handshake AI, and Technology Solutions Intern at Brown & Brown. I build native iOS apps, full-stack web platforms, and AI-powered developer tooling.",
+  bio: "Computer Science student at the University of Central Florida, AI Evaluator at Handshake AI, and Software Engineering Intern at Brown & Brown. I build native iOS apps, full-stack web platforms, and AI-powered developer tooling.",
   quickFacts: {
     education: "B.S. Computer Science @ UCF (Expected May 2027)",
     location: "Orlando, Florida",
@@ -170,14 +170,14 @@ export const projects: Project[] = [
 export const experiences: ExperienceItem[] = [
   {
     id: "1",
-    title: "Technology Solutions Intern (AI Platform)",
+    title: "Software Engineering Intern",
     company: "Brown & Brown, Inc.",
     location: "Daytona Beach, FL",
     period: "May 2026 – Aug 2026",
     description: [
-      "Built a JavaScript VS Code extension to triage PR risk, run specialist AI reviews, and publish validated findings to GitHub and Azure DevOps, cutting estimated review time by up to 80%.",
-      "Created PR-review benchmarks and evaluated multiple AI models against them to select the strongest models for risk assessment and specialist review stages.",
-      "Automated Markdown-to-XWiki publishing with Python CI/CD, Git worktrees, REST APIs, and Entra ID, preserving formatting and updating only changed pages.",
+      "Developed a JavaScript VS Code extension following software development life cycle (SDLC) practices to automate pull request risk assessment, multi-stage LLM code reviews, and feedback publishing to GitHub and Azure DevOps, with a projected 80% reduction in review time.",
+      "Developed an LLM benchmarking framework to compare code review quality and performance, guiding model selection across a multi-stage automated PR-review pipeline.",
+      "Built a Python CI/CD pipeline to automate documentation updates, syncing codebase changes to a centralized XWiki platform using REST APIs, Git worktrees, and Entra ID authentication.",
     ],
     skills: [
       "JavaScript",
