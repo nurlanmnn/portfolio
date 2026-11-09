@@ -72,14 +72,47 @@ export const personalInfo: PersonalInfo = {
 export const projects: Project[] = [
   {
     id: "1",
+    slug: "schema-sentinel",
+    title: "Schema Sentinel",
+    description:
+      "An AI-assisted pipeline for an Army-sponsored UCF Senior Design project that classifies Protobuf schema changes, finds affected code across Python, TypeScript, and C#, and drafts patches for human review.",
+    shortDescription:
+      "AI-assisted Protobuf migration pipeline with impact analysis and LLM patch drafting.",
+    year: "Aug 2026–Present",
+    role: "UCF Senior Design",
+    tech: [
+      "Python",
+      "TypeScript",
+      "C#",
+      "Protocol Buffers",
+      "Tree-sitter",
+      "Gemma",
+      "NVIDIA API",
+    ],
+    github: "https://github.com/nurlanmnn/schema-sentinel-lab",
+    highlights: [
+      "Classifies Protobuf schema changes and traces impact across Python, TypeScript, and C#",
+      "20-case migration benchmark located 137/137 known impacted code sites",
+      "Compiler-feedback repair loop raised validated LLM patches from 6/8 to 7/8",
+      "Drafts patches for human review in an Army-sponsored senior design workflow",
+    ],
+    problem:
+      "Protobuf schema migrations can silently break client code across multiple languages; teams need reliable impact analysis and assisted patching before changes ship.",
+    contributions:
+      "Built an AI-assisted pipeline that classifies schema diffs, uses Tree-sitter to find affected code paths, and drafts patches via LLM workflows with human review. Created a 20-case migration benchmark and added a compiler-feedback repair loop to improve patch validation.",
+    challenges:
+      "Finding all cross-language call sites accurately while keeping LLM-generated patches compile-ready without fully automated merge risk.",
+  },
+  {
+    id: "2",
     slug: "pickup-ucf",
     title: "PickUp UCF",
     description:
-      "A native iOS app for UCF students to discover, create, join, and chat in pickup sports sessions with UCF email verification and real-time data.",
+      "A native iOS app for UCF students to discover, create, join, and chat in pickup sports sessions with UCF email verification and real-time data. Released on the App Store.",
     shortDescription:
-      "Native iOS app for UCF students to find and join pickup sports sessions.",
+      "Native iOS app on the App Store for UCF pickup sports sessions.",
     year: "Oct 2025–Present",
-    role: "Personal Project",
+    role: "Personal Project · App Store",
     tech: [
       "Swift",
       "SwiftUI",
@@ -88,21 +121,55 @@ export const projects: Project[] = [
       "Edge Functions",
     ],
     github: "https://github.com/nurlanmnn/pickup-ucf",
+    demo: "https://apps.apple.com/us/app/pickup-ucf/id6810728702",
     highlights: [
+      "Released on the App Store for UCF students",
       "Native iOS app with UCF email verification and real-time data",
-      "Discover, create, join, and chat in pickup sports sessions",
       "Map-based discovery, recurring sessions, and waitlists",
       "APNs push notifications and Live Activities via Supabase",
     ],
     problem:
       "UCF students needed a convenient way to organize and join pickup sports games on campus.",
     contributions:
-      "Developed a native iOS app using Swift and SwiftUI with a Supabase backend. Implemented UCF email verification, map-based discovery, recurring sessions, waitlists, APNs push notifications, Live Activities, and real-time chat for session participants.",
+      "Developed a native iOS app using Swift and SwiftUI with a Supabase backend and shipped it on the App Store. Implemented UCF email verification, map-based discovery, recurring sessions, waitlists, APNs push notifications, Live Activities, and real-time chat for session participants.",
     challenges:
-      "Integrating Supabase Auth, Realtime, and Edge Functions into a polished native iOS experience while handling push notifications and Live Activities reliably.",
+      "Integrating Supabase Auth, Realtime, and Edge Functions into a polished native iOS experience while handling push notifications, Live Activities, and App Store release requirements reliably.",
   },
   {
-    id: "2",
+    id: "3",
+    slug: "roomate",
+    title: "Roomate",
+    description:
+      "A household app for shared expenses, settlements, shopping lists, events, chores, and invite-code access.",
+    shortDescription:
+      "Household coordination app for shared expenses, chores, and settlements.",
+    year: "Dec 2025–Present",
+    role: "Personal Project",
+    tech: [
+      "TypeScript",
+      "React Native",
+      "Expo",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "JWT",
+    ],
+    github: "https://github.com/nurlanmnn/roomate",
+    highlights: [
+      "Shared expenses, settlements, shopping lists, events, and chores",
+      "REST APIs with JWT and email OTP authentication",
+      "Even or custom expense splitting with balance calculations",
+      "Settlement history and spending analytics",
+    ],
+    problem:
+      "Roommates need a single place to coordinate shared living expenses, settlements, shopping, schedules, and household chores.",
+    contributions:
+      "Built a full-stack TypeScript application with React Native (Expo) and a Node.js backend using Express and MongoDB. Implemented REST APIs with JWT and email OTP authentication, expense splitting, balance calculations, settlement history, and spending analytics.",
+    challenges:
+      "Designing data models that handle shared ownership across roommates while keeping permissions, expense splits, and settlement flows clear and consistent.",
+  },
+  {
+    id: "4",
     slug: "lenny-roasts",
     title: "Lenny Roasts",
     description:
@@ -135,7 +202,7 @@ export const projects: Project[] = [
       "Running LLM evaluations and competitor comparisons in the background while keeping the 3D experience responsive and persisting rubric and placement data reliably.",
   },
   {
-    id: "3",
+    id: "5",
     slug: "flashplanner",
     title: "FlashPlanner",
     description:
@@ -201,7 +268,7 @@ export const experiences: ExperienceItem[] = [
   },
   {
     id: "3",
-    title: "Undergraduate Learning Assistant",
+    title: "Lead Undergraduate Learning Assistant",
     company: "University of Central Florida, College of Sciences",
     location: "Orlando, FL",
     period: "Aug 2024 – Present",
@@ -222,6 +289,8 @@ export const skills: SkillCategory[] = [
       "Swift",
       "Java",
       "C",
+      "C++",
+      "C#",
       "SQL",
       "HTML",
       "CSS",
@@ -278,6 +347,8 @@ export const skills: SkillCategory[] = [
       "Hugging Face",
       "Vite",
       "pytest",
+      "Protocol Buffers",
+      "Tree-sitter",
     ],
   },
 ]
